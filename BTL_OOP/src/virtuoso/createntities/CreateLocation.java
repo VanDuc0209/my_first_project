@@ -8,16 +8,16 @@ public class CreateLocation extends CreateEntities{
 	private static List<String> locationLabel = new ArrayList<String>();
 	private static List<String> locationDescription = new ArrayList<String>();
 	
-	public String getCountryLabel() {
+	public String getLocationLabel() {
 		return locationLabel.get((int)(Math.random() * locationLabel.size()));
 	}
-	public void setCountryLabel(String fileName) {
+	public void setLocationLabel(String fileName) {
 		this.setList(fileName, locationLabel);
 	}
-	public String getCountryDescription() {
+	public String getLocationDescription() {
 		return locationDescription.get((int)(Math.random() * locationDescription.size()));
 	}
-	public void setCountryDescription(String fileName) {
+	public void setLocationDescription(String fileName) {
 		this.setList(fileName, locationDescription);
 	}
 	public String getIdentifier() {
@@ -29,7 +29,7 @@ public class CreateLocation extends CreateEntities{
 	 * Khởi tạo đối tượng đồng thời khởi tạo List các thuộc tính
 	 */
 	public CreateLocation(String locationLabel, String locationDescription) {
-		this.setCountryLabel(locationLabel);
-		this.setCountryDescription(locationDescription);
+		this.setLocationLabel(locationLabel);
+		this.setLocationDescription(locationDescription);
 	}
 }

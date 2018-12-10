@@ -9,8 +9,8 @@ public class CreateEvent extends CreateEntities{
 	private static List<String> eventLabel = new ArrayList<String>();
 	private static List<String> eventAddress = new ArrayList<String>();
 	
-	public static List<String> getEventDescripion() {
-		return eventDescripion;
+	public String getEventDescripion() {
+		return eventDescripion.get((int)(Math.random() * eventDescripion.size()));
 	}
 	public void setEventDescripion(String fileName) {
 		this.setList(fileName, eventLabel);

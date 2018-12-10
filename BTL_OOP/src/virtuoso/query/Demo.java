@@ -22,12 +22,18 @@ public class Demo {
 			IRI PERSON = vf.createIRI(namespace, "Person");
 			IRI label  = vf.createIRI(namespace, "label");
 			Literal labelPerson = vf.createLiteral("duccao");
+			Literal labelPerson1 = vf.createLiteral("caoduc");
 			conn.add(vf.createStatement(PERSON, label, labelPerson));
-			
+			conn.add(vf.createStatement(PERSON, label, labelPerson1));
+			IRI COUNTRY = vf.createIRI(namespace, "Country");
+			Literal labelCountry = vf.createLiteral("viet nam");
+			conn.add(vf.createStatement(COUNTRY, label,labelCountry));
+			IRI relationship = vf.createIRI(namespace, "la nguoi");
+			conn.add(vf.createStatement(PERSON, relationship, labelCountry));
 			String queryString = "PREFIX a:<http://example.com/> \n"
 					+ "Select ?s ?o \n"
 					+ "where { \n"
-					+ "?s a:label ?o \n"
+					+ "?s a:la nguoi ?o \n"
 					+ "}";
 			TupleQuery query = conn.prepareTupleQuery(queryString);
 			

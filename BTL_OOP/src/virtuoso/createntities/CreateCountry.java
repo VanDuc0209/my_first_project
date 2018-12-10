@@ -23,4 +23,9 @@ public class CreateCountry extends CreateEntities{
 	public String getIdentifier() {
 		return "Country" + identifier++;
 	}
+	public CreateCountry() {}
+	public CreateCountry(String countryLabel, String countryDes) {
+		this.setCountryLabel(countryLabel);
+		this.setCountryDescription(countryDes);
+	}
 }

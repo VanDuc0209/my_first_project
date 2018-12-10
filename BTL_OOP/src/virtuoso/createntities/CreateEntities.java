@@ -27,7 +27,7 @@ public class CreateEntities {
 	public String getTime() {
 		return time.get((int)(Math.random() * time.size()));
 	}
-	public void setTime(String fileName, List<String> time) {
+	public void setTime(String fileName) {
 		this.setList(fileName, time);	
 	}
 	public String getLink() {

@@ -11,16 +11,16 @@ public class ConnectionDB {
 	private static final String URL = "jdbc:virtuoso://localhost:1111";
 	private static final String USERNAME = "dba";
 	private static final String PASSWORD = "dba";
-	private static final String NAMESPACE = "http://database.com/virtuoso#";
+	private static final String NAMESPACE = "http://database.com/virtuoso/";
 	
-	protected static Repository myRepository = new VirtuosoRepository(URL, USERNAME, PASSWORD);
-	protected static RepositoryConnection conn = myRepository.getConnection();
-	protected static ValueFactory myvf = conn.getValueFactory();
+	public static Repository myRepository = new VirtuosoRepository(URL, USERNAME, PASSWORD);
+	public static RepositoryConnection conn = myRepository.getConnection();
+	public static ValueFactory myvf = conn.getValueFactory();
 	
 	
 	
 	//IRI of entity
-	protected jgit en tr IRI PERSON;
+	protected IRI PERSON;
 	protected IRI COUNTRY;
 	protected IRI LOCATION;
 	protected IRI EVENT;
@@ -35,38 +35,47 @@ public class ConnectionDB {
 	protected IRI nationality;
 	protected IRI continent;
 	protected IRI headquarter;
+	protected IRI address;
 	
+
+
 	public ConnectionDB() {
 		PERSON = myvf.createIRI(NAMESPACE, "Person");
 		COUNTRY = myvf.createIRI(NAMESPACE, "Country");
 		LOCATION = myvf.createIRI(NAMESPACE, "Location");
-		ORGANIZATION = myvf.createIRI(NAMESPACE, "Organizayion");
+		ORGANIZATION = myvf.createIRI(NAMESPACE, "Organization");
 		EVENT = myvf.createIRI(NAMESPACE, "Event");
 		RELATIONSHIP = myvf.createIRI(NAMESPACE, "Relationship");
 		
-		identifier = myvf.createIRI(NAMESPACE, "identifier");
-		label = myvf.createIRI(NAMESPACE, "label");
-		description = myvf.createIRI(NAMESPACE, "description");
-		link = myvf.createIRI(NAMESPACE, "link");
-		time = myvf.createIRI(NAMESPACE, "time");
-		nationality = myvf.createIRI(NAMESPACE, "nationality");
-		continent = myvf.createIRI(NAMESPACE, "continent");
-		headquarter = myvf.createIRI(NAMESPACE, "headquarter");
+//		identifier = myvf.createIRI(NAMESPACE, "identifier");
+//		label = myvf.createIRI(NAMESPACE, "label");
+//		description = myvf.createIRI(NAMESPACE, "description");
+//		link = myvf.createIRI(NAMESPACE, "link");
+//		time = myvf.createIRI(NAMESPACE, "time");
+//		nationality = myvf.createIRI(NAMESPACE, "nationality");
+//		continent = myvf.createIRI(NAMESPACE, "continent");
+//		headquarter = myvf.createIRI(NAMESPACE, "headquarter");
+//		address = myvf.createIRI(NAMESPACE, "address");
 		
 	}
-	
+	public void genIRI(String namespace) {
+		label = myvf.createIRI(namespace, "label");
+		identifier = myvf.createIRI(namespace, "identifier");
+		description = myvf.createIRI(namespace, "description");
+		link = myvf.createIRI(namespace, "link");
+		time = myvf.createIRI(namespace, "time");
+		nationality = myvf.createIRI(namespace, "nationality");
+		headquarter = myvf.createIRI(namespace, "headquarter");
+	}
 	
 	public RepositoryConnection getConn() {
 		return conn;
 	}
-
+	public ValueFactory getMyvf() {
+		return myvf;
+	}
 	public IRI getPERSON() {
 		return PERSON;
-	}
-
-
-	public void setPERSON(IRI pERSON) {
-		PERSON = pERSON;
 	}
 
 
@@ -74,30 +83,14 @@ public class ConnectionDB {
 		return COUNTRY;
 	}
 
-
-	public void setCOUNTRY(IRI cOUNTRY) {
-		COUNTRY = cOUNTRY;
-	}
-
-
 	public IRI getLOCATION() {
 		return LOCATION;
 	}
-
-
-	public void setLOCATION(IRI lOCATION) {
-		LOCATION = lOCATION;
-	}
-
 
 	public IRI getEVENT() {
 		return EVENT;
 	}
 
-
-	public void setEVENT(IRI eVENT) {
-		EVENT = eVENT;
-	}
 
 
 	public IRI getORGANIZATION() {
@@ -105,21 +98,12 @@ public class ConnectionDB {
 	}
 
 
-	public void setORGANIZATION(IRI oRGANIZATION) {
-		ORGANIZATION = oRGANIZATION;
-	}
+
 
 
 	public IRI getRELATIONSHIP() {
 		return RELATIONSHIP;
 	}
-
-
-	public void setRELATIONSHIP(IRI rELATIONSHIP) {
-		RELATIONSHIP = rELATIONSHIP;
-	}
-
-
 	public IRI getIdentifier() {
 		return identifier;
 	}
@@ -143,6 +127,22 @@ public class ConnectionDB {
 	}
 	public IRI getHeadquarter() {
 		return headquarter;
+	}
+	public IRI getAddress() {
+		return address;
+	}
+	public void setContinent(String namespace) {
+		continent = myvf.createIRI(namespace, "continent");
+	}
+	public void setHeadquarter(String namespace) {
+		headquarter = myvf.createIRI(namespace, "headquarter");
+	}
+	public void setNationality(String namespace) {
+		nationality = myvf.createIRI(namespace, "nationality");
+	}
+	
+	public void setAddress(String namespace) {
+		address = myvf.createIRI(namespace, "address");
 	}
 	
 	public static void main(String[] args) {

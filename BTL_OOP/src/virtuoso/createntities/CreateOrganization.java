@@ -7,28 +7,28 @@ public class CreateOrganization extends CreateEntities{
 	private static int identifier = 0;
 	private static List<String> organizationLabel = new ArrayList<String>();
 	private static List<String> organizationDescription = new ArrayList<String>();
-	private static List<String> organizationHeadquater = new ArrayList<String>();
+	private static List<String> organizationHeadquarter = new ArrayList<String>();
 	
-	public String getCountryLabel() {
+	public String getOrganizationLabel() {
 		return organizationLabel.get((int)(Math.random() * organizationLabel.size()));
 	}
-	public void setCountryLabel(String fileName) {
+	public void setOrganizationLabel(String fileName) {
 		this.setList(fileName, organizationLabel);
 	}
-	public String getCountryDescription() {
+	public String getOrganizationDescription() {
 		return organizationDescription.get((int)(Math.random() * organizationDescription.size()));
 	}
-	public void setCountryDescription(String fileName) {
+	public void setOrganizationDescription(String fileName) {
 		this.setList(fileName, organizationDescription);
 	}
 	public String getIdentifier() {
-		return "Country" + identifier++;
+		return "Organization" + identifier++;
 	}
-	public String getOrganizationheadquater() {
-		return organizationHeadquater.get((int)(Math.random() * organizationHeadquater.size()));
+	public String getOrganizationheadquarter() {
+		return organizationHeadquarter.get((int)(Math.random() * organizationHeadquarter.size()));
 	}
-	public void setOrganizationheadquater(String fileName) {
-		this.setList(fileName, organizationHeadquater);
+	public void setOrganizationheadquarter(String fileName) {
+		this.setList(fileName, organizationHeadquarter);
 	}
 	public CreateOrganization() {}
 	/*javadoc
@@ -37,8 +37,8 @@ public class CreateOrganization extends CreateEntities{
 	 */
 	public CreateOrganization(String organizationLabel, String organizationDescription, String organizationHeadquater)
 	{
-		this.setCountryLabel(organizationLabel);
-		this.setCountryDescription(organizationDescription);
-		this.setOrganizationheadquater(organizationHeadquater);
+		this.setOrganizationLabel(organizationLabel);
+		this.setOrganizationDescription(organizationDescription);
+		this.setOrganizationheadquarter(organizationHeadquater);
 	}
 }
